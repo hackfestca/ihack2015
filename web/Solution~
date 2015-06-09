@@ -1,8 +1,0 @@
-Chal1 : The php session folder is accessible in read. 
-In the phpinfo.php you'll see the session path change.
-You should be able to find the admin session by doing a grep in all the session file. 
-change your PHPSESSID cookie  to 1lfuk2ev6gcpecc663ik0lih50 
-
-Chal2 : There is an sql injection in the cookie lang. By printing the flag table you should be able to find the flag.
-
-question ? : cedrick.chaput@hackfest.ca
