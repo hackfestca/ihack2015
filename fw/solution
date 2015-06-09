@@ -1,0 +1,18 @@
+FW01 : 8888
+Source port needed to be 443 (SolutionFW01.py)
+flag service (fwServer.py)
+
+FW02 : 8887
+Use the misconfigured squid serveur (squid.conf)
+nc 172.28.73.20 3128
+GET http://127.0.0.1:8887 HTTP/1.0"
+flag service (fwProxy.py)
+
+FW03 : 8889
+Base on the pcap you should be able to see the port knocking. use knock command 
+knockd configuration (knockd.conf)
+flag service (fwKnock.py)
+knock fw.ctf.hf 7000 8000 9000
+
+
+question ? : cedrick.chaput@hackfest.ca

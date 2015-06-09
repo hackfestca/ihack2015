@@ -1,0 +1,55 @@
+Board overview
+--------------
+
+The player had to interact physically with the board to get up to 6 flags. 
+
+On the board, there was 2 buttons, a potentiometer, a photocell sensor, a temperature sensor and an infra-red sensor. The first button only light a led under the LCD screen but the second button let the player change "mode" and display several informations on the LCD screen. 
+
+There was also 4 leds, one for a clock count, one for the button 2 (light on once triggered), one for flags and one for IR sensor. 
+
+On the LCD, there was 5 useful modes: Pot, Temp, Light, IR and Flag. 
+
+To display a flag, the player had to resolve a challenge and change mode to Flag. Each flags were removed from the screen after 15 seconds. 
+
+
+Flag 1
+------
+
+The player had to read the code and find three hardcoded range values (in var LOCK_CHAL_COMBIN) and convert them into analog values on the potentiometer. 
+
+To debug, the player could change mode until it display the potentiometer.
+
+The player simply needed to set the potentiometer to the first value, wait for the clock led to light on, set the second value, and so on until the third value. In Pot mode, the player could see the analog value of the potentiometer (from 0 to 1023). As an example, the following combination should trigger the flag: 150, 300, 450.
+
+
+Flag 2
+------
+
+This flag was similar to Flag 1 except that it was through the infra-red sensor, with a remote control. the code was 0, 6, 2 (inspired from a secret menu access on some SmartTV), and the last code was 0xFFFFFFFF which was triggered by holding any key.
+
+
+Flag 3
+------
+
+This flag was displayed by finding a way to turn all leds on. So a player had to successfully do a challenge, send an IR message, press button 2 and wait for the clock to count. The previous flag was then overwritten. 
+
+
+Flag 4
+------
+
+The player had to connect an extra cable and synchronize the potentiometer and the photocell sensor (See black cable on bottom right of board.jpg). 
+
+
+Flag 5
+------
+
+This flag was printed to serial every 30 seconds. A player had to build a serial port using the RX GPIO pin on the arduino. A raspberry pi, a breadboard, resistances and cables were accessible at admin table. 
+
+
+Flag 6
+------
+
+To trigger this flag, a player had to find a way to increase the temperature sensor to more than 60 celcius degree. The player could remove the sensor and connect it back. The solution was to connect it in reverse side for 2-3 seconds. In this position, the device was getting very hot. At this stage, one could plug it back to normal position. 
+
+Several teams did the challenge by computing several tasks on a laptop and putting the sensor near the fan. 
+ 
